@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">PPE4-ANDROID</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">Cas Liemie</string>
+    <string name="Logo">Logo</string>
+    <string name="User">Utilisateur</string>
+    <string name="Password">Mot de Passe</string>
+    <string name="Connect">Connexion</string>
 
 </resources>

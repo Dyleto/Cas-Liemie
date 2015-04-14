@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:id="@+id/detail">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.07" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.23"
+        android:id="@+id/details_frame">
+
+        <TextView
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Civilité"
+            android:id="@+id/Civilité"
+            android:layout_gravity="left|top" />
+
+        <TextView
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Prénom"
+            android:id="@+id/Prénom"
+            android:layout_gravity="center_horizontal|top" />
+
+        <TextView
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nom"
+            android:id="@+id/Nom"
+            android:layout_gravity="right|top" />
+
+        <RadioButton
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:text="Non-accomplie"
+            android:id="@+id/Fait_2"
+            android:name="Fait"
+            android:layout_gravity="right|center_vertical"
+            android:checked="false" />
+
+        <TextView
+            android:layout_width="139dp"
+            android:layout_height="49dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Acte"
+            android:id="@+id/Acte"
+            android:layout_gravity="left|bottom"
+            android:textSize="100px" />
+
+        <RadioButton
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:text="Accomplie"
+            android:id="@+id/Fait"
+            android:name="Fait"
+            android:layout_gravity="center"
+            android:checked="true" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.24">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView"
+            android:layout_gravity="left|top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView2"
+            android:layout_gravity="left|center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView3"
+            android:layout_gravity="left|bottom" />
+    </FrameLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Commentaire"
+        android:id="@+id/Commentaire" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultricilestie porttitor pharetra."
+        android:id="@+id/Commentaire_text"
+        android:layout_weight="0.31" />
+
+</LinearLayout>

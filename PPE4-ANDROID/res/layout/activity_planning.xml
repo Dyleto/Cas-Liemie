@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Adresse"
-            android:id="@+id/id_adresse1"
+            android:id="@+id/adresse1"
             android:layout_gravity="left|center_vertical" />
 
         <TextView
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="CP"
-            android:id="@+id/id_cp1"
+            android:id="@+id/cp1"
             android:layout_gravity="center" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Ville"
-            android:id="@+id/id_ville1"
+            android:id="@+id/ville1"
             android:layout_gravity="right|center_vertical" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Heure"
-            android:id="@+id/id_heure1"
+            android:id="@+id/heure1"
             android:layout_gravity="left|top" />
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Sexe"
-            android:id="@+id/id_sexe2"
+            android:id="@+id/sexe2"
             android:layout_gravity="center_horizontal|top" />
 
         <TextView
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Nom"
-            android:id="@+id/id_nom2"
+            android:id="@+id/nom2"
             android:layout_gravity="right|top" />
 
         <TextView
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Telephone"
-            android:id="@+id/id_telephone1"
+            android:id="@+id/telephone1"
             android:layout_gravity="center_horizontal|bottom" />
     </FrameLayout>
 
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Adresse"
-            android:id="@+id/id_adresse2"
+            android:id="@+id/adresse2"
             android:layout_gravity="left|center_vertical" />
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="CP"
-            android:id="@+id/id_cp2"
+            android:id="@+id/cp2"
             android:layout_gravity="center" />
 
         <TextView
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Ville"
-            android:id="@+id/id_ville2"
+            android:id="@+id/iville2"
             android:layout_gravity="right|center_vertical" />
 
         <TextView
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Heure"
-            android:id="@+id/id_heure2"
+            android:id="@+id/heure2"
             android:layout_gravity="left|top" />
 
         <TextView
@@ -116,7 +116,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Sexe"
-            android:id="@+id/id_sexe2"
+            android:id="@+id/sexe2"
             android:layout_gravity="center_horizontal|top" />
 
         <TextView
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Nom"
-            android:id="@+id/id_nom2"
+            android:id="@+id/nom2"
             android:layout_gravity="right|top" />
 
         <TextView
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Telephone"
-            android:id="@+id/id_telephone2"
+            android:id="@+id/telephone2"
             android:layout_gravity="center_horizontal|bottom" />
     </FrameLayout>
 
@@ -148,11 +148,5 @@
         android:id="@+id/RDV"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.08" />
-
-    <ImageView
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_weight="0.27" />
 
 </LinearLayout>

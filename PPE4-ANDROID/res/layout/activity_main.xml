@@ -1,3 +1,4 @@
+<!DOCTYPE GridLayout [<!ELEMENT GridLayout (Space|ImageView|EditText|Button)*><!ATTLIST GridLayoutxmlns:android CDATA #REQUIREDxmlns:tools CDATA #REQUIREDandroid:id CDATA #REQUIREDandroid:layout_width CDATA #REQUIREDandroid:layout_height CDATA #REQUIREDandroid:columnCount CDATA #REQUIREDandroid:orientation CDATA #REQUIREDtools:context CDATA #REQUIRED><!ELEMENT Space (#PCDATA)><!ATTLIST Spaceandroid:layout_column CDATA #IMPLIEDandroid:layout_height CDATA #IMPLIEDandroid:layout_row CDATA #REQUIREDandroid:layout_width CDATA #REQUIRED><!ELEMENT ImageView (#PCDATA)><!ATTLIST ImageViewandroid:id CDATA #REQUIREDandroid:layout_width CDATA #REQUIREDandroid:layout_column CDATA #REQUIREDandroid:layout_columnSpan CDATA #REQUIREDandroid:layout_gravity CDATA #REQUIREDandroid:layout_row CDATA #REQUIREDandroid:contentDescription CDATA #REQUIREDandroid:src CDATA #REQUIRED><!ELEMENT EditText (requestFocus)*><!ATTLIST EditTextandroid:ems CDATA #REQUIREDandroid:hint CDATA #REQUIREDandroid:id CDATA #REQUIREDandroid:inputType CDATA #REQUIREDandroid:layout_column CDATA #REQUIREDandroid:layout_gravity CDATA #REQUIREDandroid:layout_row CDATA #REQUIRED><!ELEMENT requestFocus (#PCDATA)><!ELEMENT Button (#PCDATA)><!ATTLIST Buttonandroid:id CDATA #REQUIREDandroid:layout_column CDATA #REQUIREDandroid:layout_gravity CDATA #REQUIREDandroid:layout_row CDATA #REQUIREDandroid:text CDATA #REQUIRED>]>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/Layout_Connexion"
@@ -33,7 +34,7 @@
         android:layout_gravity="start"
         android:layout_row="1"
         android:contentDescription="@string/Logo"
-        android:src="@drawable/medical" />
+        android:src="@drawable/medical.jpg" />
 
     <Space
         android:layout_width="1dp"

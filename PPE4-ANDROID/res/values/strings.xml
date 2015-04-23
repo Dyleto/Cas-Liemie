@@ -6,5 +6,11 @@
     <string name="User">Utilisateur</string>
     <string name="Password">Mot de Passe</string>
     <string name="Connect">Connexion</string>
+    <string name="rememberme">Se souvenir de moi</string>
+    <string name="login">Utilisateur : </string>
+    <string name="mdp">Mot de passe : </string>
 
+    <string name="notification">Notification</string>
+    <string name="notification_title">Connexion réussie</string>
+    <string name="notification_desc">Votre session est active</string>
 </resources>

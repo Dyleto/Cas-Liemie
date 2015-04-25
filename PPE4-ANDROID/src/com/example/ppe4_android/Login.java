@@ -3,42 +3,45 @@ package com.example.ppe4_android;
 /**
  * Created by Erwan on 23/04/2015.
  */
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.protocol.HTTP;
+import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.os.Looper;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
-        import java.io.IOException;
-        import java.io.InputStream;
-        import java.security.MessageDigest;
-        import java.security.NoSuchAlgorithmException;
-        import java.util.ArrayList;
-        import java.util.List;
-        import javax.xml.parsers.ParserConfigurationException;
-        import javax.xml.parsers.SAXParser;
-        import javax.xml.parsers.SAXParserFactory;
-        import org.apache.http.HttpEntity;
-        import org.apache.http.HttpResponse;
-        import org.apache.http.NameValuePair;
-        import org.apache.http.client.entity.UrlEncodedFormEntity;
-        import org.apache.http.client.methods.HttpPost;
-        import org.apache.http.impl.client.DefaultHttpClient;
-        import org.apache.http.message.BasicNameValuePair;
-        import org.apache.http.params.HttpConnectionParams;
-        import org.apache.http.protocol.HTTP;
-        import org.xml.sax.Attributes;
-        import org.xml.sax.InputSource;
-        import org.xml.sax.SAXException;
-        import org.xml.sax.XMLReader;
-        import org.xml.sax.helpers.DefaultHandler;
-        import android.app.Activity;
-        import android.app.AlertDialog;
-        import android.app.ProgressDialog;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.os.Looper;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import com.example.ppe4_android.R;
 
-public class Login extends MainActivity
+
+
+public class Login extends Activity
 {
     // Lien vers votre page php sur votre serveur
     private static final String	UPDATE_URL	= "http://liemie.hol.es/android_login_api.php";
@@ -49,19 +52,50 @@ public class Login extends MainActivity
 
     private EditText						PassEditText;
 
+    private CheckBox checkBox;
+    public static final String PREFS_NAME = ".Preferences";
+    private static final String PREF_EMAIL = "email";
+    private static final String PREF_PASSWORD = "password";
+    private static final String PREF_CHECKED = "checked";
+
     public void onCreate(Bundle savedInstanceState)
     {
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**********************************************************/
+    /* Importation des caractéristiques des champs et boutons */
+        /**********************************************************/
+
+        PassEditText = (EditText) findViewById(R.id.loginUser);
+        UserEditText = (EditText) findViewById(R.id.loginPassword);
+        checkBox = (CheckBox)findViewById(R.id.cbRememberMe);
+
+
+        /***********************************************************************/
+    /* Restauration des préférences sauvegardées si la checkbox est cochée */
+        /***********************************************************************/
+
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        String email = pref.getString(PREF_EMAIL, "");
+        String password = pref.getString(PREF_PASSWORD, "");
+        String checked = pref.getString(PREF_CHECKED, "");
+
+
+        PassEditText.setText(password);
+        UserEditText.setText(email);
+        checkBox.setChecked(Boolean.parseBoolean(checked));
+
         // initialisation d'une progress bar
         progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Please wait...");
+        progressDialog.setMessage("Veuillez attendre...");
         progressDialog.setIndeterminate(true);
         progressDialog.setCancelable(false);
         // Récupération des éléments de la vue définis dans le xml
-        UserEditText = (EditText) findViewById(R.id.loginUser);
+        UserEditText = (EditText) findViewById( R.id.loginUser);
 
         PassEditText = (EditText) findViewById(R.id.loginPassword);
         Button button = (Button) findViewById(R.id.btnLogin);
@@ -72,6 +106,30 @@ public class Login extends MainActivity
 
             public void onClick(View v)
             {
+
+                /************************************************************/
+        /* Enregistrement des préférences si la checkbox est cochée */
+                /************************************************************/
+
+                if(checkBox.isChecked())
+                {
+                    getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                            .edit()
+                            .putString(PREF_EMAIL, UserEditText.getText().toString())
+                            .putString(PREF_PASSWORD, PassEditText.getText().toString())
+                            .putString(PREF_CHECKED,"TRUE")
+                            .commit();
+                }
+
+                /***********************/
+        /* Sinon on les efface */
+                /***********************/
+
+                else if(!checkBox.isChecked())
+                {
+                    getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
+                }
+
 
                 int usersize = UserEditText.getText().length();
 
@@ -90,7 +148,7 @@ public class Login extends MainActivity
 
                 }
                 else
-                    createDialog("Error", "Please enter Username and Password");
+                    createDialog("Erreur", "S'il vous plaît entrer un nom d'utilisateur et un mot de passe");
 
             }
 
@@ -107,6 +165,10 @@ public class Login extends MainActivity
             }
 
         });
+
+
+
+
 
     }
 
@@ -180,7 +242,7 @@ public class Login extends MainActivity
                 {
 
                     progressDialog.dismiss();
-                    createDialog("Error", "Couldn't establish a connection");
+                    createDialog("Erreur", "La connection ne peut être établie");
 
                 }
 
@@ -274,7 +336,7 @@ public class Login extends MainActivity
     {
         // Classe traitant le message de retour du script PHP
         private boolean	in_loginTag		= false;
-        private int	userID;
+        private int			userID;
         private boolean	error_occured	= false;
 
         public void startElement(String n, String l, String q, Attributes a)
@@ -293,13 +355,13 @@ public class Login extends MainActivity
                 switch (Integer.parseInt(a.getValue("value")))
                 {
                     case 1:
-                        createDialog("Error", "Couldn't connect to Database");
+                        createDialog("Erreur", "Impossible de se connecter à la base de données");
                         break;
                     case 2:
-                        createDialog("Error", "Error in Database: Table missing");
+                        createDialog("Erreur", "Erreur dans la base de données : Tables manquantes");
                         break;
                     case 3:
-                        createDialog("Error", "Invalid username and/or password");
+                        createDialog("Erreur", "Nom d'utilisateur et / ou mot de passe invalide");
                         break;
                 }
                 error_occured = true;

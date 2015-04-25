@@ -1,9 +1,10 @@
 package com.example.ppe4_android;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import com.example.ppe4_android.Login;
+
 
 public class MainActivity extends Activity
 {
@@ -15,7 +16,7 @@ public class MainActivity extends Activity
         super.onCreate(icicle);
 
         //Appel de la page de Login
-        startActivityForResult(new Intent(this, Login.class), RESULT_Main);
+        startActivityForResult(new Intent(MainActivity.this, Login.class), RESULT_Main);
 
         tv = new TextView(this);
         setContentView(tv);

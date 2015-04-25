@@ -41,6 +41,7 @@
 
         <EditText
             android:id="@+id/loginUser"
+            android:name="loginUser"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -68,6 +69,7 @@
         <!--  Password TextField -->
         <EditText
             android:id="@+id/loginPassword"
+            android:name="loginPassword"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
@@ -81,6 +83,7 @@
 
         <Button
             android:id="@+id/btnLogin"
+            android:name="btnLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
@@ -89,6 +92,7 @@
         <Button
 
             android:id="@+id/cancelbutton"
+            android:name="cancelbutton"
 
             android:layout_width="fill_parent"
 

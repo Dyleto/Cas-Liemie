@@ -56,15 +56,7 @@
             android:textStyle="bold"
             android:id="@+id/text_mdp" />
 
-        <!--  Password Label -->
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dip"
-            android:text="@string/Password"
-            android:layout_weight="1"
-            android:textSize="15dp"
-            android:id="@+id/mdp" />
+
 
         <!--  Password TextField -->
         <EditText
@@ -93,13 +85,16 @@
 
             android:id="@+id/cancelbutton"
             android:name="cancelbutton"
-
             android:layout_width="fill_parent"
-
             android:layout_height="wrap_content"
-
             android:text="Quitter"
 
+            />
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text=""
             />
     </LinearLayout>
 </LinearLayout>

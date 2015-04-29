@@ -7,7 +7,10 @@
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="17" />
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    =
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -38,5 +41,21 @@
     <activity android:name=".UserPage"
         android:label="@string/app_name" />
 
-</application>
+
+        <activity
+            android:name=".ActImport"
+            android:label="@string/title_activity_act_import" >
+        </activity>
+        <activity
+            android:name=".ActExport"
+            android:label="@string/title_activity_act_export" >
+        </activity>
+
+
+        <activity
+            android:name=".AfficheListeVisite"
+            android:label="@string/title_activity_affiche_liste_patient" >
+        </activity>>
+
+    </application>
 </manifest>

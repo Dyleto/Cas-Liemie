@@ -25,6 +25,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -44,21 +46,25 @@ public class Login extends Activity {
     List<NameValuePair> nameValuePairs;
     ProgressDialog dialog = null;
 
-    private CheckBox checkBox;
+
+    /**********************************/
+  /* Enregistrement des préférences */
+    /**********************************/
+
     public static final String PREFS_NAME = ".Preferences";
-    private static final String PREF_EMAIL = "name";
-    private static final String PREF_PASSWORD = "password";
+    private static final String PREF_EMAIL = "email";
     private static final String PREF_CHECKED = "checked";
+    private CheckBox checkBox;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        con = (Button)findViewById(R.id.btnLogin);
-        decon = (Button)findViewById(R.id.cancelbutton);
-        et = (EditText)findViewById(R.id.loginUser);
-        pass= (EditText)findViewById(R.id.loginPassword);
-        tv = (TextView)findViewById(R.id.tv);
+        con = (Button) findViewById(R.id.btnLogin);
+        decon = (Button) findViewById(R.id.cancelbutton);
+        et = (EditText) findViewById(R.id.loginUser);
+        pass = (EditText) findViewById(R.id.loginPassword);
+        tv = (TextView) findViewById(R.id.tv);
         checkBox = (CheckBox) findViewById(R.id.cbRememberMe);
 
         /***********************************************************************/
@@ -67,47 +73,40 @@ public class Login extends Activity {
 
         SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
         String email = pref.getString(PREF_EMAIL, "");
-        String password = pref.getString(PREF_PASSWORD, "");
         String checked = pref.getString(PREF_CHECKED, "");
 
-
-        pass.setText(password);
         et.setText(email);
         checkBox.setChecked(Boolean.parseBoolean(checked));
 
-        /************************************************************/
-        /* Enregistrement des préférences si la checkbox est cochée */
-        /************************************************************/
 
-        if(checkBox.isChecked())
-        {
-            getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
-                    .edit()
-                    .putString(PREF_EMAIL, et.getText().toString())
-                    .putString(PREF_PASSWORD, pass.getText().toString())
-                    .putString(PREF_CHECKED,"TRUE")
-                    .commit();
-        }
-
-        /***********************/
-        /* Sinon on les efface */
-        /***********************/
-
-        else if(!checkBox.isChecked())
-        {
-            getSharedPreferences(PREFS_NAME,MODE_PRIVATE).edit().clear().commit();
-        }
 
         con.setOnClickListener(
-                new Button.OnClickListener()
-                {
-                    public void onClick(View v)
-                    {
+
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        /************************************************************/
+        /* Enregistrement des préférences si la checkbox est cochée */
+                        /************************************************************/
+
+                        if (checkBox.isChecked()) {
+                            getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+                                    .edit()
+                                    .putString(PREF_EMAIL, et.getText().toString())
+                                    .putString(PREF_CHECKED, "TRUE")
+                                    .commit();
+                        }
+
+                        /***********************/
+        /* Sinon on les efface */
+                        /***********************/
+
+                        else if (!checkBox.isChecked()) {
+                            getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit().clear().commit();
+                        }
 
                         dialog = ProgressDialog.show(Login.this, "",
-                                "Validatiion user...", true);
-                        new Thread(new Runnable()
-                        {
+                                "En cours...", true);
+                        new Thread(new Runnable() {
                             public void run() {
                                 doLogin();
                             }
@@ -116,41 +115,43 @@ public class Login extends Activity {
                     }
                 }
         );
-        decon = (Button) findViewById(R.id.cancelbutton);
-        decon.setOnClickListener(new View.OnClickListener()
-        {
 
-            public void onClick(View v)
-            {
-                quit(false, null);
-            }
-        });
 
+        decon.setOnClickListener(
+
+                new Button.OnClickListener() {
+
+                    public void onClick(View v) {
+                        /************************************************************/
+                         /* Enregistrement des préférences si la checkbox est cochée */
+                        /************************************************************/
+
+                        if (checkBox.isChecked()) {
+                            getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+                                    .edit()
+                                    .putString(PREF_EMAIL, et.getText().toString())
+                                    .putString(PREF_CHECKED, "TRUE")
+                                    .commit();
+                        }
+
+                        /***********************/
+        /* Sinon on les efface */
+                        /***********************/
+
+                        else if (!checkBox.isChecked()) {
+                            getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit().clear().commit();
+                        }
+
+                        new Thread(new Runnable() {
+                            public void run() {
+                                finish();
+                            }
+                        }).start();
+                    }
+
+                }
+        );
     }
-
-
-
-
-
-    private void quit(boolean success, Intent i)
-    {
-        // On envoie un résultat qui va permettre de quitter l'appli
-        setResult((success) ? Activity.RESULT_OK : Activity.RESULT_CANCELED, i);
-        finish();
-
-    }
-
-    private void createDialog(String title, String text)
-    {
-        // Création d'une popup affichant un message
-        AlertDialog ad = new AlertDialog.Builder(this)
-                .setPositiveButton("Ok", null).setTitle(title).setMessage(text)
-                .create();
-        ad.show();
-
-    }
-
-
 
     void doLogin(){
         try{
@@ -171,7 +172,7 @@ public class Login extends Activity {
             System.out.println("Response : " + response);
             runOnUiThread(new Runnable() {
                 public void run() {
-                    tv.setText("Response from PHP : " + response);
+                    //tv.setText("Response from PHP : " + response);
                     dialog.dismiss();
                 }
             });
@@ -179,7 +180,7 @@ public class Login extends Activity {
             if(response.equalsIgnoreCase("User Found")){
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        Toast.makeText(Login.this,"Login Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this,"Connexion réussie", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -212,4 +213,39 @@ public class Login extends Activity {
             }
         });
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_list:
+                Toast.makeText(getApplicationContext(),	"clic sur list",Toast.LENGTH_LONG).show();
+                Intent myIntent = new Intent(getApplicationContext(), AfficheListeVisite.class);
+                startActivity(myIntent);
+                return true;
+            case R.id.menu_import:
+                Toast.makeText(getApplicationContext(),	"clic sur import",Toast.LENGTH_LONG).show();
+                Intent myIntent2 = new Intent(getApplicationContext(), ActImport.class);
+                startActivity(myIntent2);
+                return true;
+            case R.id.menu_export:
+
+                Toast.makeText(getApplicationContext(),	"clic sur export",Toast.LENGTH_LONG).show();
+                Intent myIntent3 = new Intent(getApplicationContext(), ActExport.class);
+                startActivity(myIntent3);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 }

@@ -3,138 +3,207 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/details">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.15"
-        android:id="@+id/details_frame">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Adresse"
-            android:id="@+id/adresse1"
-            android:layout_gravity="left|center_vertical" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="CP"
-            android:id="@+id/cp1"
-            android:layout_gravity="center" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ville"
-            android:id="@+id/ville1"
-            android:layout_gravity="right|center_vertical" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Heure"
-            android:id="@+id/heure1"
-            android:layout_gravity="left|top" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Sexe"
-            android:id="@+id/sexe2"
-            android:layout_gravity="center_horizontal|top" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Nom"
-            android:id="@+id/nom2"
-            android:layout_gravity="right|top" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Telephone"
-            android:id="@+id/telephone1"
-            android:layout_gravity="center_horizontal|bottom" />
-    </FrameLayout>
+    android:id="@+id/planning"
+    >
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.09" />
 
-    <FrameLayout
+
+
+<TableLayout
+
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/TableLayout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:shrinkColumns="*"  android:stretchColumns="*"
+            android:layout_weight="0"
+            android:background="@drawable/back">
+
+
+
+            <TableRow
+
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:background="#BBD2E1"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="18dp" android:text="Heure 1 "  android:layout_span="3"
+                    android:padding="4dip"
+                    android:textColor="#000" android:id="@+id/heure1"
+                    android:textAlignment="center" android:gravity="center" />
+
+            </TableRow>
+
+            <!-- Row 2 with 3 columns -->
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:text="Sexe"
+                    android:id="@+id/sexe1"
+                    android:layout_weight="50" android:background="#BBD2E1"
+                    android:textColor="#000000"
+                    android:padding="4dip"
+                    android:gravity="right" />
+                <TextView
+                    android:text="Nom"
+                    android:id="@+id/nom1"
+                    android:layout_weight="50" android:background="#BBD2E1"
+                    android:textColor="#000000"
+                    android:padding="4dip"
+                    android:gravity="left" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="18dp" android:text="Adresse"  android:layout_span="3"
+                    android:padding="4dip" android:background="#BBD2E1"
+                    android:textColor="#000" android:id="@+id/adresse1" android:gravity="center"/>
+
+            </TableRow>
+            <!-- Row 3 with 2 columns -->
+            <TableRow
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:text="CP"
+                    android:id="@+id/cp1"
+                    android:layout_weight="50"  android:background="#BBD2E1"
+                     android:textColor="#000000"
+                    android:padding="4dip"
+                    android:gravity="right" />
+
+                <TextView
+                    android:text="Ville"
+                    android:id="@+id/ville1"
+                    android:layout_weight="50" android:background="#BBD2E1"
+                    android:textColor="#000000"
+                    android:padding="4dip" android:gravity="left"/>
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="18dp" android:text="telephone"  android:layout_span="3"
+                    android:padding="4dip" android:background="#BBD2E1"
+                    android:textColor="#000" android:id="@+id/telephone1"
+                    android:gravity="center" />
+
+            </TableRow>
+            </TableLayout>
+
+
+    <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.15"
-        android:id="@+id/frameLayout">
+        android:layout_weight="0.09" />
 
-        <TextView
-            android:layout_width="wrap_content"
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/TableLayout2"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:shrinkColumns="*"  android:stretchColumns="*"
+        android:background="@drawable/back">
+        <!-- Row 1 with single column -->
+        <TableRow
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Adresse"
-            android:id="@+id/adresse2"
-            android:layout_gravity="left|center_vertical" />
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="CP"
-            android:id="@+id/cp2"
-            android:layout_gravity="center" />
+            <TextView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="18dp" android:text="Row 1"  android:layout_span="3"
+                android:padding="4dip" android:background="#BBD2E1"
+                android:textColor="#000" android:id="@+id/heure2"
+                android:textAlignment="center" android:gravity="center" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ville"
-            android:id="@+id/iville2"
-            android:layout_gravity="right|center_vertical" />
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Heure"
-            android:id="@+id/heure2"
-            android:layout_gravity="left|top" />
+        <!-- Row 2 with 3 columns -->
 
-        <TextView
-            android:layout_width="wrap_content"
+        <TableRow
+            android:id="@+id/tableRow3"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Sexe"
-            android:id="@+id/sexe2"
-            android:layout_gravity="center_horizontal|top" />
+            android:layout_width="match_parent">
+            <TextView
+                android:text="Sexe"
+                android:id="@+id/sexe2"
+                android:layout_weight="50" android:background="#BBD2E1"
+                android:textColor="#000000"
+                android:padding="4dip" android:gravity="right"/>
+            <TextView
+                android:text="Nom"
+                android:id="@+id/nom2"
+                android:layout_weight="50" android:background="#BBD2E1"
+                android:textColor="#000000"
+                android:padding="4dip" android:gravity="left"/>
+        </TableRow>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <TableRow
+            android:id="@+id/tableRow4"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Nom"
-            android:id="@+id/nom2"
-            android:layout_gravity="right|top" />
+            android:layout_width="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="18dp" android:text="Adresse"  android:layout_span="3"
+                android:padding="4dip" android:background="#BBD2E1"
+                android:textColor="#000" android:id="@+id/adresse2" android:gravity="center"/>
+
+        </TableRow>
+        <!-- Row 3 with 2 columns -->
+        <TableRow
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Telephone"
-            android:id="@+id/telephone2"
-            android:layout_gravity="center_horizontal|bottom" />
-    </FrameLayout>
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal">
+            <TextView
+                android:text="CP"
+                android:id="@+id/cp2"
+                android:layout_weight="50"  android:background="#BBD2E1"
+                android:textColor="#000000"
+                android:padding="4dip"
+                android:gravity="right" />
+
+            <TextView
+                android:text="Ville"
+                android:id="@+id/ville2"
+                android:layout_weight="50" android:background="#BBD2E1"
+                android:textColor="#000000"
+                android:padding="4dip" android:gravity="left"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textSize="18dp" android:text="telephone"  android:layout_span="3"
+                android:padding="4dip" android:background="#BBD2E1"
+                android:textColor="#000" android:id="@+id/telephone2"
+                android:gravity="center" />
+
+        </TableRow>
+    </TableLayout>
 
     <Space
         android:layout_width="match_parent"
@@ -142,19 +211,25 @@
         android:layout_weight="0.22" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Tous les rendez-vous"
         android:id="@+id/RDV"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.08" />
+
+/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Déconnexion"
         android:id="@+id/btnLogout"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.08" />
+        android:name="btnLogout"
+
+
+/>
 
 </LinearLayout>

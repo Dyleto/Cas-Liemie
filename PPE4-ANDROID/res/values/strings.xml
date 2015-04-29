@@ -13,4 +13,17 @@
     <string name="notification">Notification</string>
     <string name="notification_title">Connexion réussie</string>
     <string name="notification_desc">Votre session est active</string>
+
+
+
+    <string name="menu_list">Liste des patients</string>
+    <string name="menu_import">Importer les patients</string>
+    <string name="menu_export">Exporter les patients</string>
+    <string name="title_activity_affiche_liste_patient">AfficheListePatient</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_modification_patient">ModificationPatient</string>
+    <string name="title_activity_act_import">Importer</string>
+    <string name="title_activity_act_export">Exporter</string>
+
+    <string name="refresh_button">Refresh</string>
 </resources>

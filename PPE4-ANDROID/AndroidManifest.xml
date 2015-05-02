@@ -57,5 +57,10 @@
             android:label="@string/title_activity_affiche_liste_patient" >
         </activity>>
 
+        <activity
+            android:name=".vuevisite"
+            android:label="visite" >
+        </activity>>
+
     </application>
 </manifest>

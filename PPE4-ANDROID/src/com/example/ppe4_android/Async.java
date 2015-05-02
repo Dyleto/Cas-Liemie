@@ -44,6 +44,7 @@ public class Async extends AsyncTask<String, String, Boolean> {
 //pour exemple on appelle une méthode de l'appelant qui va gérer la fin ok du thread
 			if (classActivityAppelante.contains("ActImport"))
     			{
+
     				((ActImport) activityAppelante.get()).retourImport (stringBuilder);
     			}
 			if (classActivityAppelante.contains("ActExport"))
@@ -66,7 +67,8 @@ public class Async extends AsyncTask<String, String, Boolean> {
     	        	vUrl = params[0];
 		}
     	if (classActivityAppelante.contains("ActExport")) {
-    				vlistpatient = params[1];
+            vUrl = params[1];
+            vlistpatient = params[1];
     			}
     	
     	HttpURLConnection urlConnection = null;
@@ -83,19 +85,19 @@ public class Async extends AsyncTask<String, String, Boolean> {
 			
 			if (classActivityAppelante.contains("ActImport") ) {
                 JSONObject jsonParam = new JSONObject();
-                jsonParam.put("listVisite", vlistvisite);
+                jsonParam.put("listeVisite", vlistvisite);
                 out.write(jsonParam.toString());
                 out.flush();
 			}
 			out.close();
 			
-			if (classActivityAppelante.contains("ActExport") ) {
-				JSONObject jsonParam = new JSONObject();
-				jsonParam.put("listpatient", vlistpatient);
-				out.write(jsonParam.toString());
-				out.flush();
-			}
-			out.close();
+			//if (classActivityAppelante.contains("ActExport") ) {
+			//	JSONObject jsonParam = new JSONObject();
+			//	jsonParam.put("listpatient", vlistpatient);
+			//	out.write(jsonParam.toString());
+			//	out.flush();
+			//}
+			//out.close();
 			
 int HttpResult = urlConnection.getResponseCode();
 		
@@ -107,8 +109,8 @@ int HttpResult = urlConnection.getResponseCode();
 				stringBuilder.append(line);
 			}
 			br.close();
-			String[] vstring0 = { "Reçu du serveur",stringBuilder.toString() };
-			publishProgress(vstring0);
+			//String[] vstring0 = { "Reçu du serveur",stringBuilder.toString() };
+		//	publishProgress(vstring0);
 
 		} else {
 			String[] vstring0 = { "Erreur",

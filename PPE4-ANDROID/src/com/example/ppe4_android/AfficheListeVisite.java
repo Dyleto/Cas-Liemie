@@ -24,12 +24,12 @@ public class AfficheListeVisite extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		mon_modele= new modele();
 		super.onCreate(savedInstanceState);
-        listeVisite = mon_modele.listVisite();
+        listeVisite = mon_modele.listeVisite();
 		setContentView(R.layout.activity_affiche_liste_visite);
 		
 		listView = (ListView)findViewById(R.id.lvListe);
-        VisiteAdapter patientAdapter = new VisiteAdapter(this, listeVisite);
-		listView.setAdapter(patientAdapter);
+        VisiteAdapter visiteAdapter = new VisiteAdapter(this, listeVisite);
+		listView.setAdapter(visiteAdapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override

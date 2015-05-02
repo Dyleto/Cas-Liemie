@@ -20,15 +20,13 @@ public class modele {
 	public modele() {
 		createDirectory();
 		open();
-		// si partie import non dÃ©veloppÃ©e
-		//chargeDataBase();
 		dataBase.close();
 	}
 	
 	public void open() {
 
 		db4oFileName = Environment.getExternalStorageDirectory() + "/baseDB4o"
-				+ "/BasePatient.db4o";
+				+ "/BaseVisite.db4o";
 		dataBase = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(),
 				db4oFileName);
 	}
@@ -43,19 +41,19 @@ public class modele {
 	}
 
 	
-	public ArrayList<Visite> listVisite() {
+	public ArrayList<Visite> listeVisite() {
 		open();
-		ArrayList<Visite> listVisite = new ArrayList<Visite>();
+		ArrayList<Visite> listeVisite = new ArrayList<Visite>();
 		ObjectSet<Visite> result = dataBase.queryByExample(Visite.class);
 		while (result.hasNext()) {
-            listVisite.add(result.next());
+            listeVisite.add(result.next());
 		}
 		dataBase.close();
-		return listVisite;
+		return listeVisite;
 	}
 
 	
-	public Visite trouveVisite (String id) {
+	public Visite trouveVisite (int id) {
 		open();
         Visite vretour = new Visite();
 		vretour.setIdentifiant(id);
@@ -79,72 +77,9 @@ public class modele {
 			dataBase.store(vretour);
 		}
 		dataBase.close();
+
 	}
- 
-/*	public void chargeDataBase() {
-		try {
-			ObjectSet<Visite> result = dataBase.queryByExample(Visite.class);
-			if (result.size() == 0) {
-				try {
-					dataBase.store(new Visite("30/04/2015 10:20:00","1001", "Dupont", "paul",
-							"10 rue Anne Frank", "49000", "angers",
-							"0624553212", "0",
-							new SimpleDateFormat("dd/MM/yyyy")
-									.parse("15/03/1945")
-                   ));
-					dataBase.commit();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				try {
-					dataBase.store(new Visite("30/04/2015 10:20:00","1002", "Lulu", "Isabelle",
-							"10 Avenue des arts et mÃ©tiers", "49000", "angers",
-							"0624553212", "1",
-							new SimpleDateFormat("dd/MM/yyyy")
-									.parse("15/03/1954")));
-					dataBase.commit();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				try {
-					dataBase.store(new Visite("30/04/2015 10:20:00","1003", "Caolin", "Etienne",
-							"10 rue Boisnet", "49000", "angers", "0624553212","1",
-							 new SimpleDateFormat(
-									"dd/MM/yyyy").parse("15/03/2012")));
-					dataBase.commit();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				try {
-					dataBase.store(new Visite(" 30/04/2015 10:20:00","1004", "Breche", "Alfred",
-							"25 rue du quinconce", "49000", "angers",
-							"0623553211", "0",
-							new SimpleDateFormat("dd/MM/yyyy")
-									.parse("15/08/1964")));
-					dataBase.commit();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				try {
-					dataBase.store(new Visite("30/04/2015 10:20:00","1005", "Centaure", "Marie",
-							"20 rue des lutins", "49000", "angers",
-							"0744553212", "1",
-							new SimpleDateFormat("dd/MM/yyyy")
-									.parse("15/05/1951")));
-					dataBase.commit();
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		} finally {
-			dataBase.close();
-		}
-	}*/
+
 
 	public void addVisite(ArrayList<Visite> vVisite) {
 		open();

@@ -25,9 +25,10 @@ public class ActImport extends Activity {
 	private Button mBouton = null;
 	public AsyncTask<String, String, Boolean> mThreadCon = null;
     private modele model= new modele();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_act_import);
 
@@ -39,6 +40,7 @@ public class ActImport extends Activity {
 			}
 		});
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,14 +83,15 @@ public class ActImport extends Activity {
         JsonElement json = new JsonParser().parse(sb.toString());
         JsonArray varray = json.getAsJsonArray();
         Gson gson = new GsonBuilder().setDateFormat("yyyy-mm-dd").create();
-        ArrayList<Visite> listVisite = new ArrayList<Visite>();
+
+        ArrayList<Visite> listeVisite = new ArrayList<Visite>();
         for (JsonElement obj : varray) {
             Visite visite = gson.fromJson(obj.getAsJsonObject(), Visite.class);
-            listVisite.add(visite);
+            listeVisite.add(visite);
 
         }
         model.deleteVisite();
-        model.addVisite(listVisite);
+        model.addVisite(listeVisite);
 
 
     }

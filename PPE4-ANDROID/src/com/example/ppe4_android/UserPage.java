@@ -119,11 +119,19 @@ public class UserPage extends Activity {
                 JSONObject object = mArray.getJSONObject(i);
 
                 String nom = object.getString("nom");
-                String heure = object.getString("DatePrevuDeb");
+                String s = object.getString("DatePrevuDeb");
+                String heure;
+                heure = String.format("%s/%s/%s %s:%s", s.substring(8, 10),
+                        s.substring(5, 7), s.substring(0, 4), s.substring(11, 13),
+                        s.substring(14, 16));
+
+
                 String sexe = object.getString("sexe");
-                if (sexe != "0") {
+
+                if (sexe == "0") {
                     sexe = "Monsieur";
-                } else {
+                }
+                else  {
                     sexe = "Madame";
                 }
                 String adresse = object.getString("adrRue");
@@ -168,12 +176,19 @@ public class UserPage extends Activity {
                 JSONObject object = mArray.getJSONObject(i);
 
                 String nom = object.getString("nom");
-                String heure = object.getString("DatePrevuDeb");
-                String sexe = object.getString("sexe");
-                if (sexe != "0") {
-                    sexe = "Monsieur";
-                } else {
-                    sexe = "Madame";
+                String s = object.getString("DatePrevuDeb");
+                String heure;
+                heure = String.format("%s/%s/%s %s:%s", s.substring(8, 10),
+                        s.substring(5, 7), s.substring(0, 4), s.substring(11, 13),
+                        s.substring(14, 16));
+
+                String sexe2 = object.getString("sexe");
+
+                if (sexe2 == "0") {
+                    sexe2 = "Monsieur";
+                }
+                else  {
+                    sexe2 = "Madame";
                 }
                 String adresse = object.getString("adrRue");
                 String cp = object.getString("CP");
@@ -181,7 +196,7 @@ public class UserPage extends Activity {
                 String tel = object.getString("telephone");
 
                 textView_5.setText(heure);
-                textView2_5.setText(sexe);
+                textView2_5.setText(sexe2);
                 textView3_5.setText(nom);
                 textView4_5.setText(adresse);
                 textView5_5.setText(cp);

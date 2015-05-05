@@ -61,7 +61,7 @@ public class Login extends Activity {
         setContentView(R.layout.activity_main);
 
         con = (Button) findViewById(R.id.btnLogin);
-   
+
         et = (EditText) findViewById(R.id.loginUser);
         pass = (EditText) findViewById(R.id.loginPassword);
         tv = (TextView) findViewById(R.id.tv);

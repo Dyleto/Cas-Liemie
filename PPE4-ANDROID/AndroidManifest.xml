@@ -62,5 +62,10 @@
             android:label="visite" >
         </activity>>
 
+        <activity
+            android:name=".ModificationVisite"
+            android:label="visite" >
+        </activity>>
+
     </application>
 </manifest>

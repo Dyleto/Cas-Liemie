@@ -84,7 +84,7 @@ public class VisiteAdapter extends BaseAdapter {
         s = String.format("%s/%s/%s %s:%s", s.substring(8, 10),
         		s.substring(5, 7), s.substring(0, 4), s.substring(11, 13),
         		s.substring(14, 16));
-      //  holder.textViewDatePrevuDeb.setText(listeVisite.get(position).getDatePrevuDeb());
+
         holder.textViewDatePrevuDeb.setText(s);
 
 

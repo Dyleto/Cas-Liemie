@@ -17,11 +17,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class Async extends AsyncTask<String, String, Boolean> {
@@ -43,6 +46,8 @@ public class Async extends AsyncTask<String, String, Boolean> {
 	if (activityAppelante.get() != null)
 			Toast.makeText(activityAppelante.get(), "Thread on démarre",
 					Toast.LENGTH_SHORT).show();
+  
+
 
 
     }
@@ -57,32 +62,39 @@ public class Async extends AsyncTask<String, String, Boolean> {
 			if (classActivityAppelante.contains("ActImport"))
     			{
 
-    				((ActImport) activityAppelante.get()).retourImport (stringBuilder);
+
+
+    				((ActImport) activityAppelante.get()).retourImport(stringBuilder);
 
                     ((ActImport) activityAppelante.get()).alertmsg ("Importation","L'importation s'est déroulé avec succés");
 
     			}
 			if (classActivityAppelante.contains("ActExport"))
 			{
-				//((ActExport) activityAppelante.get()).retourExport (stringBuilder);
+                ((ActExport) activityAppelante.get()).retourExport(stringBuilder);
+
+                ((ActExport) activityAppelante.get()).alertmsg("Exportation", "L'exportation s'est déroulé avec succés");
 			}
     		}
         	else 
           		Toast.makeText(activityAppelante.get(), "Fin ko",
 						Toast.LENGTH_SHORT).show();		}
+
+
     }
 
     @Override
     protected Boolean doInBackground (String... params) {// Exécution en arrière plan
 
-    	String vUrl=""; String vlistpatient="";String vlistvisite="";
+    	String vUrl=""; String vlistvisite="";
 
   	if (classActivityAppelante.contains("ActImport")) {
     	        	vUrl = params[0];
 		}
     	if (classActivityAppelante.contains("ActExport")) {
+
             vUrl = params[1];
-            vlistpatient = params[1];
+            vlistvisite = params[1];
     			}
 
     	HttpURLConnection urlConnection = null;
@@ -106,14 +118,7 @@ public class Async extends AsyncTask<String, String, Boolean> {
                 out.flush();
 			}
 			out.close();
-			
-			//if (classActivityAppelante.contains("ActExport") ) {
-			//	JSONObject jsonParam = new JSONObject();
-			//	jsonParam.put("listpatient", vlistpatient);
-			//	out.write(jsonParam.toString());
-			//	out.flush();
-			//}
-			//out.close();
+
 			
 int HttpResult = urlConnection.getResponseCode();
 		

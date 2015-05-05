@@ -36,9 +36,9 @@ public class AfficheListeVisite extends Activity {
 			@Override
 			 public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 
-			//Intent myIntent = new Intent(getApplicationContext(), ModificationVisite.class);
-			//myIntent.putExtra("param1", listePatient.get(position).getIdentifiant());
-			//startActivity(myIntent);
+			Intent myIntent = new Intent(getApplicationContext(), ModificationVisite.class);
+			myIntent.putExtra("param1", listeVisite.get(position).getIdV());
+			startActivity(myIntent);
 
 			}
 			}); 

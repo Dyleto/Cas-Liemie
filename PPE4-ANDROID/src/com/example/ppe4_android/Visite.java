@@ -15,9 +15,10 @@ private String telephone;
 private String DatePrevuDeb;
 private String commentaireVisite;
 private Boolean sexe;
+private String idV;
 
 public Visite(){}
-public Visite(String vnom, String vprenom,String vadrRue, String vcp, String vville, String vtl,String vDatePrevuDeb, Boolean vsexe, String vcommentaireVisite) {
+public Visite(String vidV,String vnom, String vprenom,String vadrRue, String vcp, String vville, String vtl,String vDatePrevuDeb, Boolean vsexe, String vcommentaireVisite) {
         setNom(vnom);
         setPrenom(vprenom);
         setAdresse(vadrRue);
@@ -27,10 +28,11 @@ public Visite(String vnom, String vprenom,String vadrRue, String vcp, String vvi
         setDatePrevuDeb(vDatePrevuDeb);
         setSexe(vsexe);
         setCommentaireVisite(vcommentaireVisite);
+       setIdV(vidV);
         }
 public void recopieVisite(Visite visite)
         {
-
+            setIdV(visite.getIdV());
         setNom(visite.getNom());
         setPrenom(visite.getPrenom());
         setAdresse(visite.getAdresse());
@@ -105,6 +107,14 @@ public void setCommentaireVisite(String commentaireVisite) {
 
     public void setDatePrevuDeb(String datePrevuDeb) {
         DatePrevuDeb = datePrevuDeb;
+    }
+
+    public String getIdV() {
+        return idV;
+    }
+
+    public void setIdV(String idV) {
+        this.idV = idV;
     }
 }
 

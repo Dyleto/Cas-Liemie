@@ -12,6 +12,8 @@ import com.google.gson.JsonParser;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,23 +22,32 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
 public class ActImport extends Activity {
 
 	private Button mBouton = null;
 	public AsyncTask<String, String, Boolean> mThreadCon = null;
     private modele model= new modele();
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
+
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_act_import);
+
 
 		mBouton = (Button)findViewById(R.id.vimport);
 		mBouton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				String[] mesparams = { "http://erwanquin1.freeheberg.org/Visite.php" };
 				mThreadCon = new Async (ActImport.this).execute(mesparams);
+
+
 			}
 		});
 	}
@@ -69,7 +80,8 @@ public class ActImport extends Activity {
        .setTitle(title);
 	builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	           public void onClick(DialogInterface dialog, int id) {
-	               // User clicked OK button
+                   Intent myIntent = new Intent(getApplicationContext(), AfficheListeVisite.class);
+                   startActivity(myIntent);
 	           }
 	       });
 

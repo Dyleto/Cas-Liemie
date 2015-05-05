@@ -56,7 +56,7 @@ public class modele {
 	public Visite trouveVisite (int id) {
 		open();
         Visite vretour = new Visite();
-		vretour.setIdentifiant(id);
+		//vretour.setIdentifiant(id);
 		ObjectSet<Visite> result = dataBase.queryByExample(vretour);
 		vretour = (Visite) result.next();
 		dataBase.close();
@@ -67,7 +67,7 @@ public class modele {
 	public void saveVisite(Visite visite) {
 		open();
         Visite vretour = new Visite();
-		vretour.setIdentifiant(visite.getIdentifiant());
+	//	vretour.setIdentifiant(visite.getIdentifiant());
 		ObjectSet<Visite> result = dataBase.queryByExample(vretour);
 		if (result.size() == 0) {
 			dataBase.store(visite);

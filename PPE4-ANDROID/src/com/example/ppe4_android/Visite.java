@@ -6,48 +6,41 @@ import java.util.Date;
  * Created by Erwan on 29/04/2015.
  */
 public class Visite {
-private int idC;
 private String nom;
 private String prenom;
 private String adrRue;
 private String CP;
 private String ville;
 private String telephone;
-private Date dateNaiss;
+private String DatePrevuDeb;
 private String commentaireVisite;
 private Boolean sexe;
 
 public Visite(){}
-public Visite(int vidC, String vnom, String vprenom,String vadrRue, String vcp, String vville, String vtl,Date vdateNaiss, Boolean vsexe, String vcommentaireVisite) {
-        setIdentifiant(vidC);
+public Visite(String vnom, String vprenom,String vadrRue, String vcp, String vville, String vtl,String vDatePrevuDeb, Boolean vsexe, String vcommentaireVisite) {
         setNom(vnom);
         setPrenom(vprenom);
         setAdresse(vadrRue);
         setCodePostal(vcp);
         setVille(vville);
         setTelephone(vtl);
-        setDateNaiss(vdateNaiss);
+        setDatePrevuDeb(vDatePrevuDeb);
         setSexe(vsexe);
         setCommentaireVisite(vcommentaireVisite);
         }
 public void recopieVisite(Visite visite)
         {
-        setIdentifiant(visite.getIdentifiant());
+
         setNom(visite.getNom());
         setPrenom(visite.getPrenom());
         setAdresse(visite.getAdresse());
         setCodePostal(visite.getCodePostal());
         setVille(visite.getVille());
         setTelephone(visite.getTelephone());
-        setDateNaiss(visite.getDateNaiss());
+        setDatePrevuDeb(visite.getDatePrevuDeb());
         setCommentaireVisite(visite.getCommentaireVisite());
         }
-public int getIdentifiant() {
-        return idC;
-        }
-public void setIdentifiant(int idC) {
-        this.idC = idC;
-        }
+
 public String getNom() {
         return nom;
         }
@@ -84,12 +77,7 @@ public String getTelephone() {
 public void setTelephone(String telephone) {
         this.telephone = telephone;
         }
-public Date getDateNaiss() {
-        return dateNaiss;
-        }
-public void setDateNaiss(Date dateNaiss) {
-        this.dateNaiss = dateNaiss;
-        }
+
 public String getCommentaireVisite() {
         return commentaireVisite;
         }
@@ -97,18 +85,26 @@ public void setCommentaireVisite(String commentaireVisite) {
         this.commentaireVisite = commentaireVisite;
         }
 
-    public String getSexe(boolean sexe) {
+    public String getSexe() {
        String sex;
        if (sexe==true)
        {
-           sex = "Mme";
+           sex = "Mme.";
        }
-        else sex = "Mr";
+        else sex = "Mr.";
      return sex;
     }
 
     public void setSexe(Boolean sexe) {
         this.sexe = sexe;
+    }
+
+    public String getDatePrevuDeb() {
+        return DatePrevuDeb;
+    }
+
+    public void setDatePrevuDeb(String datePrevuDeb) {
+        DatePrevuDeb = datePrevuDeb;
     }
 }
 

@@ -8,12 +8,20 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 public class Async extends AsyncTask<String, String, Boolean> {
@@ -21,11 +29,13 @@ public class Async extends AsyncTask<String, String, Boolean> {
 	private WeakReference<Activity> activityAppelante = null;
 	private String classActivityAppelante;
 	private StringBuilder stringBuilder = new StringBuilder();
-	
+
 	
     public Async (Activity pActivity) {
     	activityAppelante = new WeakReference<Activity>(pActivity);
     	classActivityAppelante = pActivity.getClass().toString();
+
+
       }
 
     @Override
@@ -33,6 +43,8 @@ public class Async extends AsyncTask<String, String, Boolean> {
 	if (activityAppelante.get() != null)
 			Toast.makeText(activityAppelante.get(), "Thread on démarre",
 					Toast.LENGTH_SHORT).show();
+
+
     }
 
     @Override
@@ -46,6 +58,9 @@ public class Async extends AsyncTask<String, String, Boolean> {
     			{
 
     				((ActImport) activityAppelante.get()).retourImport (stringBuilder);
+
+                    ((ActImport) activityAppelante.get()).alertmsg ("Importation","L'importation s'est déroulé avec succés");
+
     			}
 			if (classActivityAppelante.contains("ActExport"))
 			{
@@ -59,31 +74,32 @@ public class Async extends AsyncTask<String, String, Boolean> {
 
     @Override
     protected Boolean doInBackground (String... params) {// Exécution en arrière plan
-    	stringBuilder.append("Retour vers l'activity appelante");//simule une réception d'un serveur
+
     	String vUrl=""; String vlistpatient="";String vlistvisite="";
-    	
-			
-    	if (classActivityAppelante.contains("ActImport")) {
+
+  	if (classActivityAppelante.contains("ActImport")) {
     	        	vUrl = params[0];
 		}
     	if (classActivityAppelante.contains("ActExport")) {
             vUrl = params[1];
             vlistpatient = params[1];
     			}
-    	
+
     	HttpURLConnection urlConnection = null;
 		try {
+
 			URL url = new URL(vUrl);
 			urlConnection = (HttpURLConnection) url.openConnection();
 			urlConnection.setRequestProperty("Content-Type", "application/json");
 			urlConnection.setRequestProperty("Accept", "application/json");
+
 			urlConnection.setRequestMethod("POST");
 			urlConnection.setDoOutput(true);
 			urlConnection.setConnectTimeout(2000);
 			OutputStreamWriter out = new OutputStreamWriter(
 					urlConnection.getOutputStream());
 			
-			if (classActivityAppelante.contains("ActImport") ) {
+			if (classActivityAppelante.contains("ActExport") ) {
                 JSONObject jsonParam = new JSONObject();
                 jsonParam.put("listeVisite", vlistvisite);
                 out.write(jsonParam.toString());

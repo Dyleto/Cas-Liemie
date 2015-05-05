@@ -22,6 +22,7 @@ public class AfficheListeVisite extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		mon_modele= new modele();
 		super.onCreate(savedInstanceState);
         listeVisite = mon_modele.listeVisite();
@@ -34,8 +35,7 @@ public class AfficheListeVisite extends Activity {
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			 public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-			Toast.makeText(getApplicationContext(),"Choix : "+listeVisite.get(position).getIdentifiant(), Toast.LENGTH_LONG).show();
-		
+
 			//Intent myIntent = new Intent(getApplicationContext(), ModificationVisite.class);
 			//myIntent.putExtra("param1", listePatient.get(position).getIdentifiant());
 			//startActivity(myIntent);

@@ -52,7 +52,7 @@ protected void onCreate(Bundle savedInstanceState) {
                     }
                     String[] mesparams = { "http://erwanquin1.freeheberg.org/export.php",sVisite};
                     mThreadCon = new Async (ActExport.this).execute(mesparams);
-                    model.deleteVisite();
+
                 }
             });
 
@@ -77,20 +77,7 @@ protected void onCreate(Bundle savedInstanceState) {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void retourExport(StringBuilder sb)
-	{
 
-		if (sb.toString().compareToIgnoreCase("Ok")==0)
-		{
-			modele modele = new modele();
-
-		}
-		else 
-		{
-			Toast.makeText(getApplicationContext(),	"L'export c'est mal passer",Toast.LENGTH_LONG).show();
-		}
-		
-	}
 
     public void alertmsg(String title, String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());

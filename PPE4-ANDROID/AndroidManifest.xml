@@ -58,12 +58,21 @@
         </activity>>
 
         <activity
+            android:name=".AfficheListeVisiteOFF"
+            android:label="@string/title_activity_affiche_liste_patient" >
+        </activity>>
+
+        <activity
             android:name=".vuevisite"
             android:label="visite" >
         </activity>>
 
         <activity
             android:name=".ModificationVisite"
+            android:label="visite" >
+        </activity>>
+        <activity
+            android:name=".ModificationVisiteOFF"
             android:label="visite" >
         </activity>>
 

@@ -61,7 +61,7 @@ public class Login extends Activity {
         setContentView(R.layout.activity_main);
 
         con = (Button) findViewById(R.id.btnLogin);
-        decon = (Button) findViewById(R.id.cancelbutton);
+   
         et = (EditText) findViewById(R.id.loginUser);
         pass = (EditText) findViewById(R.id.loginPassword);
         tv = (TextView) findViewById(R.id.tv);
@@ -117,41 +117,10 @@ public class Login extends Activity {
         );
 
 
-        decon.setOnClickListener(
 
-                new Button.OnClickListener() {
-
-                    public void onClick(View v) {
-                        /************************************************************/
-                         /* Enregistrement des préférences si la checkbox est cochée */
-                        /************************************************************/
-
-                        if (checkBox.isChecked()) {
-                            getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
-                                    .edit()
-                                    .putString(PREF_EMAIL, et.getText().toString())
-                                    .putString(PREF_CHECKED, "TRUE")
-                                    .commit();
-                        }
-
-                        /***********************/
-        /* Sinon on les efface */
-                        /***********************/
-
-                        else if (!checkBox.isChecked()) {
-                            getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit().clear().commit();
-                        }
-
-                        new Thread(new Runnable() {
-                            public void run() {
-                                finish();
-                            }
-                        }).start();
-                    }
-
-                }
-        );
     }
+
+
 
     void doLogin(){
         try{
@@ -227,20 +196,10 @@ public class Login extends Activity {
         switch (item.getItemId()) {
             case R.id.menu_list:
                 Toast.makeText(getApplicationContext(),	"clic sur list",Toast.LENGTH_LONG).show();
-                Intent myIntent = new Intent(getApplicationContext(), AfficheListeVisite.class);
+                Intent myIntent = new Intent(getApplicationContext(), AfficheListeVisiteOFF.class);
                 startActivity(myIntent);
                 return true;
-            case R.id.menu_import:
-                Toast.makeText(getApplicationContext(),	"clic sur import",Toast.LENGTH_LONG).show();
-                Intent myIntent2 = new Intent(getApplicationContext(), ActImport.class);
-                startActivity(myIntent2);
-                return true;
-            case R.id.menu_export:
 
-                Toast.makeText(getApplicationContext(),	"clic sur export",Toast.LENGTH_LONG).show();
-                Intent myIntent3 = new Intent(getApplicationContext(), ActExport.class);
-                startActivity(myIntent3);
-                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,11 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.androidprojet3.AfficheListePatient" >
+    tools:context="com.example.rr.MainActivity" >
+
+
 
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:id="@+id/Menu_Principal"
+        android:icon="@drawable/home"
+        android:showAsAction="always"
+        android:title="Menu_Principal"/>
+
+
 
 </menu>

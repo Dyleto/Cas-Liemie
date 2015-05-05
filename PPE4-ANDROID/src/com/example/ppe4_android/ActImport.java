@@ -31,8 +31,9 @@ public class ActImport extends Activity {
 	private Button mBouton = null;
 	public AsyncTask<String, String, Boolean> mThreadCon = null;
     private modele model= new modele();
-
-
+    public static final String PREFS_NAME = ".Preferences";
+    private static final String PREF_EMAIL = "email";
+    private String nom="";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,16 +42,13 @@ public class ActImport extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_act_import);
 
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME,MODE_PRIVATE);
+        nom = pref.getString(PREF_EMAIL, "");
 
-		mBouton = (Button)findViewById(R.id.vimport);
-		mBouton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				String[] mesparams = { "http://erwanquin1.freeheberg.org/Visite.php" };
+
+				String[] mesparams = { "http://erwanquin1.freeheberg.org/Visite.php",nom };
 				mThreadCon = new Async (ActImport.this).execute(mesparams);
 
-
-			}
-		});
 	}
 
 

@@ -81,15 +81,6 @@
             android:layout_marginTop="20dip"
             android:text="@string/Connect" />
 
-        <Button
-
-            android:id="@+id/cancelbutton"
-            android:name="cancelbutton"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Quitter"
-
-            />
         <TextView
             android:id="@+id/tv"
             android:layout_width="fill_parent"

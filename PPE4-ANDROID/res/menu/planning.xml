@@ -14,6 +14,12 @@
         android:showAsAction="always"
         android:title="@string/menu_export"/>
 
+    <item
+        android:id="@+id/Menu_Principal"
+        android:icon="@drawable/home"
+        android:showAsAction="always"
+        android:title="Menu_Principal"/>
+
 
 
 </menu>

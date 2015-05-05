@@ -5,21 +5,10 @@
 
     tools:context="com.example.androidprojet3.ActImport" >
 
-    <Button
-        android:id="@+id/vimport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Import" />
-
     <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/progressBar"
-        android:layout_below="@+id/vimport"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
-
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

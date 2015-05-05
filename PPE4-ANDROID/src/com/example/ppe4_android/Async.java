@@ -71,7 +71,6 @@ public class Async extends AsyncTask<String, String, Boolean> {
     			}
 			if (classActivityAppelante.contains("ActExport"))
 			{
-                ((ActExport) activityAppelante.get()).retourExport(stringBuilder);
 
                 ((ActExport) activityAppelante.get()).alertmsg("Exportation", "L'exportation s'est déroulé avec succés");
 			}
@@ -90,10 +89,11 @@ public class Async extends AsyncTask<String, String, Boolean> {
 
   	if (classActivityAppelante.contains("ActImport")) {
     	        	vUrl = params[0];
+                    vlistvisite = params[1];
 		}
     	if (classActivityAppelante.contains("ActExport")) {
 
-            vUrl = params[1];
+            vUrl = params[0];
             vlistvisite = params[1];
     			}
 
@@ -117,6 +117,12 @@ public class Async extends AsyncTask<String, String, Boolean> {
                 out.write(jsonParam.toString());
                 out.flush();
 			}
+            if (classActivityAppelante.contains("ActImport") ) {
+                JSONObject jsonParam = new JSONObject();
+                jsonParam.put("Nom", vlistvisite);
+                out.write(jsonParam.toString());
+                out.flush();
+            }
 			out.close();
 
 			

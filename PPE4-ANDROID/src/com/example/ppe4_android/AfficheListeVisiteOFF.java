@@ -1,18 +1,18 @@
 package com.example.ppe4_android;
 
-import java.util.ArrayList;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class AfficheListeVisite extends Activity {
+import java.util.ArrayList;
+
+public class AfficheListeVisiteOFF extends Activity {
 
 	
 	private ListView listView;
@@ -36,7 +36,7 @@ public class AfficheListeVisite extends Activity {
 			@Override
 			 public void onItemClick(AdapterView<?> a, View v, int position, long id) {
 
-			Intent myIntent = new Intent(getApplicationContext(), ModificationVisite.class);
+			Intent myIntent = new Intent(getApplicationContext(), ModificationVisiteOFF.class);
 			myIntent.putExtra("param1", listeVisite.get(position).getIdV());
 			startActivity(myIntent);
 
@@ -52,7 +52,7 @@ public class AfficheListeVisite extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.planning, menu);
+        getMenuInflater().inflate(R.menu.affiche_liste_visite, menu);
         return true;
     }
 
@@ -62,21 +62,11 @@ public class AfficheListeVisite extends Activity {
 
             case R.id.Menu_Principal:
 
-                Intent myIntent = new Intent(getApplicationContext(), UserPage.class);
+                Intent myIntent = new Intent(getApplicationContext(), Login.class);
                 startActivity(myIntent);
                 return true;
 
-            case R.id.menu_import:
 
-                Intent myIntent2 = new Intent(getApplicationContext(), ActImport.class);
-                startActivity(myIntent2);
-                return true;
-            case R.id.menu_export:
-
-
-                Intent myIntent3 = new Intent(getApplicationContext(), ActExport.class);
-                startActivity(myIntent3);
-                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

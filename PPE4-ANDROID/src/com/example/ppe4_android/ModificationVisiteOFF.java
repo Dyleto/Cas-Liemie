@@ -1,7 +1,5 @@
 package com.example.ppe4_android;
 
-import java.text.SimpleDateFormat;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ModificationVisite extends Activity {
+public class ModificationVisiteOFF extends Activity {
 
 	Visite p;
 	@Override
@@ -99,7 +97,7 @@ public class ModificationVisite extends Activity {
 
             case R.id.Retour:
 
-                Intent myIntent = new Intent(getApplicationContext(), AfficheListeVisite.class);
+                Intent myIntent = new Intent(getApplicationContext(), AfficheListeVisiteOFF.class);
                 startActivity(myIntent);
                 return true;
 

@@ -71,12 +71,14 @@ public class VisiteAdapter extends BaseAdapter {
 		}
 		holder.textViewNom.setText(listeVisite.get(position).getNom());
         holder.textViewSexe.setText(listeVisite.get(position).getSexe());
+
 		holder.textViewPrenom.setText(listeVisite.get(position).getPrenom());
-		//String s = listeVisite.get(position).getTelephone();
-		//s = String.format("%s.%s.%s.%s.%s", s.substring(0, 2),
-		//		s.substring(2, 4), s.substring(4, 6), s.substring(6, 8),
-		//		s.substring(8, 10));
-		holder.textViewTelephone.setText(listeVisite.get(position).getTelephone());
+		String t = listeVisite.get(position).getTelephone();
+		t = String.format("0%s.%s.%s.%s.%s", t.substring(0, 1),
+				t.substring(1, 3), t.substring(3, 5), t.substring(5, 7),
+				t.substring(7, 9));
+
+        holder.textViewTelephone.setText(t);
 		holder.textViewAdresse.setText(listeVisite.get(position).getAdresse());
 		holder.textViewCodePostal.setText(listeVisite.get(position).getCodePostal());
 		holder.textViewVille.setText(listeVisite.get(position).getVille());

@@ -128,16 +128,16 @@ public class UserPage extends Activity {
 
                 String sexe = object.getString("sexe");
 
-                if (sexe == "0") {
-                    sexe = "Monsieur";
-                }
-                else  {
-                    sexe = "Madame";
-                }
+
                 String adresse = object.getString("adrRue");
                 String cp = object.getString("CP");
                 String ville = object.getString("ville");
-                String tel = object.getString("telephone");
+                String t = object.getString("telephone");
+                String tel ;
+                tel = String.format("0%s.%s.%s.%s.%s", t.substring(0, 1),
+                        t.substring(1, 3), t.substring(3, 5), t.substring(5, 7),
+                        t.substring(7, 9));
+
 
                 textView.setText(heure);
                 textView2.setText(sexe);
@@ -182,21 +182,21 @@ public class UserPage extends Activity {
                         s.substring(5, 7), s.substring(0, 4), s.substring(11, 13),
                         s.substring(14, 16));
 
-                String sexe2 = object.getString("sexe");
-
-                if (sexe2 == "0") {
-                    sexe2 = "Monsieur";
-                }
-                else  {
-                    sexe2 = "Madame";
-                }
+                String sexe = object.getString("sexe");
                 String adresse = object.getString("adrRue");
                 String cp = object.getString("CP");
                 String ville = object.getString("ville");
-                String tel = object.getString("telephone");
+
+                String t = object.getString("telephone");
+                String tel ;
+                tel = String.format("0%s.%s.%s.%s.%s", t.substring(0, 1),
+                        t.substring(1, 3), t.substring(3, 5), t.substring(5, 7),
+                        t.substring(7, 9));
+
+
 
                 textView_5.setText(heure);
-                textView2_5.setText(sexe2);
+                textView2_5.setText(sexe);
                 textView3_5.setText(nom);
                 textView4_5.setText(adresse);
                 textView5_5.setText(cp);

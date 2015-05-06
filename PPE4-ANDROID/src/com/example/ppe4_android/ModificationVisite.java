@@ -58,11 +58,13 @@ public class ModificationVisite extends Activity {
 		textView = (TextView) findViewById(R.id.Tel);
 
 		String sTelephone = p.getTelephone().toString();
-		//sTelephone = String.format("%s.%s.%s.%s.%s",
-		//		sTelephone.substring(0, 2), sTelephone.substring(2, 4),
-		//		sTelephone.substring(4, 6), sTelephone.substring(6, 8),
-		//		sTelephone.substring(8, 10));
+		sTelephone = String.format("0%s.%s.%s.%s.%s", sTelephone.substring(0, 1),
+                sTelephone.substring(1, 3), sTelephone.substring(3, 5), sTelephone.substring(5, 7),
+                sTelephone.substring(7, 9));
 		textView.setText(sTelephone);
+
+
+
 		EditText editText = (EditText) findViewById(R.id.Commentaire_text);
 		editText.setText(p.getCommentaireVisite());
 		

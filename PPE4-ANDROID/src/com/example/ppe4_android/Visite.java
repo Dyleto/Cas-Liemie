@@ -14,11 +14,11 @@ private String ville;
 private String telephone;
 private String DatePrevuDeb;
 private String commentaireVisite;
-private Boolean sexe;
+private String sexe;
 private String idV;
 
 public Visite(){}
-public Visite(String vidV,String vnom, String vprenom,String vadrRue, String vcp, String vville, String vtl,String vDatePrevuDeb, Boolean vsexe, String vcommentaireVisite) {
+public Visite(String vidV,String vnom, String vprenom,String vadrRue, String vcp, String vville, String vtl,String vDatePrevuDeb, String vsexe, String vcommentaireVisite) {
         setNom(vnom);
         setPrenom(vprenom);
         setAdresse(vadrRue);
@@ -88,16 +88,10 @@ public void setCommentaireVisite(String commentaireVisite) {
         }
 
     public String getSexe() {
-       String sex;
-       if (sexe==true)
-       {
-           sex = "Mme.";
-       }
-        else sex = "Mr.";
-     return sex;
+       return sexe;
     }
 
-    public void setSexe(Boolean sexe) {
+    public void setSexe(String sexe) {
         this.sexe = sexe;
     }
 

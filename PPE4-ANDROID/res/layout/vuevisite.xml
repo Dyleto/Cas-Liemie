@@ -22,73 +22,87 @@
         android:paddingLeft="5dip"
         />
     </TableRow>
-    <TableRow
 
+
+    <TableRow
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_margin="2dp"
+        android:orientation="horizontal"
         android:gravity="center_horizontal">
 
         <TextView
-
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Civilité"
             android:id="@+id/vueSexe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dip" />
+            android:layout_gravity="right|top"
+            android:gravity="right"
+            android:textSize="15dp" />
 
         <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Prénom"
             android:id="@+id/vueNom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dip"/>
+            android:layout_gravity="center_horizontal|top"
+            android:textSize="15dp"
+            android:gravity="right"/>
 
         <TextView
-            android:id="@+id/vuePrenom"
-            android:layout_width="wrap_content"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="5dip"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nom"
+            android:id="@+id/vuePrenom"
+            android:textSize="15dp"/>
 
     </TableRow>
 
-    <TableRow
 
+    <TableRow
+        android:id="@+id/tableRow5"
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:gravity="center_horizontal">
 
-		<TextView
-		android:id="@+id/vueTl"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:paddingLeft="5dip"/>
-		
-	</TableRow>
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textSize="18dp" android:text="telephone"  android:layout_span="3"
+            android:padding="4dip"
+             android:id="@+id/vueTl"
+            android:gravity="center" />
+
+    </TableRow>
+
+
     <TableRow
-
         android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:gravity="center_horizontal">
-    	<TextView
-		android:id="@+id/vueAdresse"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:paddingLeft="5dip"/>
 
-		<TextView
-		android:id="@+id/vueCp"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:paddingLeft="5dip"/>
-		 
-		<TextView
-		android:id="@+id/vueVille"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:paddingLeft="5dip"/>
+        <TextView
+            android:text="Adresse"
+            android:id="@+id/vueAdresse"
+            android:layout_weight="50"
+            android:padding="4dip"
+            android:gravity="right" />
 
-		
-	</TableRow>
+        <TextView
+            android:text="CP"
+            android:id="@+id/vueCp"
+            android:layout_weight="50"
+            android:padding="4dip"
+            android:gravity="right" />
 
-
+        <TextView
+            android:text="Ville"
+            android:id="@+id/vueVille"
+            android:layout_weight="50"
+            android:padding="4dip" android:gravity="left"/>
+    </TableRow>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
